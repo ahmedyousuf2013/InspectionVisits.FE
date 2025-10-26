@@ -4,6 +4,7 @@
     "outDir": "./dist/out-tsc",
     "baseUrl": "src",
     "sourceMap": true,
+    "inlineSources": true,
     "declaration": false,
     "module": "es2020",
     "moduleResolution": "node",

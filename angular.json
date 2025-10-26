@@ -44,7 +44,7 @@
           "configurations": {
             "production": {
               "optimization": {
-                "scripts": true,
+                "scripts":false,
                 "styles": {
                   "minify": false,
                   "inlineCritical": false
@@ -52,7 +52,7 @@
                 "fonts": true
               },
               "outputHashing": "all",
-              "sourceMap": false,
+              "sourceMap": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -71,7 +71,8 @@
               "buildOptimizer": false,
               "sourceMap": true,
               "optimization": {
-                "scripts": true,
+                "scripts":false,
+                
                 "styles": {
                   "minify": false,
                   "inlineCritical": true

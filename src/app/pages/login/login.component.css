@@ -1,0 +1,15 @@
+.login-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+}
+.login-card {
+  width: 320px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+}
+.form-group { margin-bottom: 12px; }
+.text-danger { color: #d9534f; }
