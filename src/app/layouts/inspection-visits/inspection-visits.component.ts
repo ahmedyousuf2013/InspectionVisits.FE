@@ -27,9 +27,10 @@ export class InspectionVisitsComponent implements OnInit {
   ) { }
 
   // الفلاتر
-  filter = {
-    startDate: null,
-    endDate: null,
+  filter = 
+  {
+    from: null,
+    to: null,
     status: null,
     inspectorId: null,
   } as any;
