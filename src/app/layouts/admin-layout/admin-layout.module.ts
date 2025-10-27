@@ -28,6 +28,7 @@ import { InspectionVisitComponent } from '../inspection-visit/inspection-visit.c
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core'; // For native date handling
 import {  InspectionVisitsComponent } from '../inspection-visits/inspection-visits.component';
+import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
   imports: [
@@ -44,7 +45,9 @@ import {  InspectionVisitsComponent } from '../inspection-visits/inspection-visi
     MatIconModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+     MatRadioModule,
+
   ],
   declarations: [
     DashboardComponent,

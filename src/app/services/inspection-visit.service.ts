@@ -23,4 +23,9 @@ export class InspectionVisitService {
       const url = `${this.apiUrl}InspectVisit/getall-ispections-visits`;
       return this.http.post<ApiResponse<InspectorVisit[]>>(url, model);
     }
+
+  UpdateINspectionVisitStatus(model: any): Observable<ApiResponse<InspectorVisit[]>> {
+      const url = `${this.apiUrl}InspectVisit/update-inspection-viststatus`;
+      return this.http.post<ApiResponse<InspectorVisit[]>>(url, model);
+    }
 }

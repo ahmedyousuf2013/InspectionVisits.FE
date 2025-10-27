@@ -8,4 +8,5 @@ export  class InspectorVisit
   status: number
   score: number
   notes: string
+  starusstring:string
 }

@@ -4,6 +4,8 @@ import { InspectorVisit } from 'app/models/insepctor-visit';
 import { inspector } from 'app/models/inspector';
 import { InspectionVisitService } from 'app/services/inspection-visit.service';
 import { InspectorService } from 'app/services/inspector.service';
+import { MatDialog } from '@angular/material/dialog';
+import { StatusDialogComponent } from '../status-dialog/status-dialog.component';
 
 @Component({
   selector: 'app-inspection-visits',
@@ -12,21 +14,14 @@ import { InspectorService } from 'app/services/inspector.service';
 })
 export class InspectionVisitsComponent implements OnInit {
   inspectorList: inspector[] = [];
-  filteredVisits: InspectorVisit [] = [];
+  filteredVisits: InspectorVisit[] = [];
   private inspectionVisitForm: FormGroup;
   constructor(private InspectorService: InspectorService,
-    private InspectionVisitService : InspectionVisitService, 
-    private fb: FormBuilder
-    
-  ) { }
-   
-   
+    private InspectionVisitService: InspectionVisitService,
+    private fb: FormBuilder,
+    private dialog: MatDialog,
 
-  entityList = [
-    { id: 1, name: 'Entity 1' },
-    { id: 2, name: 'Entity 2' },
-    { id: 3, name: 'Entity 3' }
-  ];
+  ) { }
 
   // الفلاتر
   filter = {
@@ -34,16 +29,16 @@ export class InspectionVisitsComponent implements OnInit {
     endDate: null,
     status: null,
     inspectorId: null,
-  }as any;
+  } as any;
 
   // قائمة الزيارات
-  
+
 
 
   ngOnInit(): void {
-   debugger
+    debugger
     this.LoadInspectorsList();
-    this.loadInspectionVisits();
+    this.searchVisits();
   }
   LoadInspectorsList() {
     this.InspectorService.GetEntiyToIInspectAll().subscribe(respose => {
@@ -55,17 +50,32 @@ export class InspectionVisitsComponent implements OnInit {
       }
     });
   }
-  loadInspectionVisits() 
-  {  
+  searchVisits() {
 
     this.InspectionVisitService.GetALinspectionVisits(this.filter).subscribe(respose => {
       if (respose.isSuccess) {
-       this.filteredVisits = respose.result;
+        this.filteredVisits = respose.result;
         console.log(respose.result);
       } else {
         console.log('Error while fetching Entity to inspect list');
       }
     });
   }
-  
+  openStatusDialog(visit: any): void {
+    const dialogRef = this.dialog.open(StatusDialogComponent, {
+      width: '400px',
+      data: { visit }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        visit.status = result;
+        this.searchVisits();
+      }
+    });
+  }
+
+  addVaiolation(inspectionVisitId: number) {
+    // Navigate to the violation addition page with the inspection visit ID
+  }
 }

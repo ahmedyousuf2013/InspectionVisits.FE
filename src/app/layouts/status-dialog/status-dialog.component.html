@@ -1,0 +1,22 @@
+<h2 mat-dialog-title class="text-center">Update Visit Status</h2>
+
+<mat-dialog-content class="mat-typography p-4">
+  <form [formGroup]="statusForm">
+    <div class="status-options">
+      <label class="status-label">Select new status:</label>
+
+      <mat-radio-group formControlName="status" class="status-radio-group">
+        <mat-radio-button value="1">Planned</mat-radio-button>
+        <mat-radio-button value="2">In Progress</mat-radio-button>
+        <mat-radio-button value="3">Completed</mat-radio-button>
+        <mat-radio-button value="4">Cancelled</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" (click)="save()" [disabled]="!statusForm.valid">Save</button>
+</mat-dialog-actions>

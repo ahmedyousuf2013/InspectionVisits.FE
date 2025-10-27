@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <!-- Filters Section -->
                         <div class="row mb-3">
-                            <!-- Date Range Filter -->
+                            <!-- Date Range Filter (Start Date) -->
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                     <mat-label>Start Date</mat-label>
@@ -19,6 +19,8 @@
                                     <mat-datepicker #startDatePicker></mat-datepicker>
                                 </mat-form-field>
                             </div>
+
+                            <!-- Date Range Filter (End Date) -->
                             <div class="col-md-3">
                                 <mat-form-field class="example-full-width">
                                     <mat-label>End Date</mat-label>
@@ -33,10 +35,10 @@
                                 <mat-form-field class="example-full-width">
                                     <mat-label>Status</mat-label>
                                     <mat-select [(ngModel)]="filter.status">
-                                        <mat-option value="1">Planned</mat-option>
-                                        <mat-option value="2">In Progress</mat-option>
-                                        <mat-option value="3">Completed</mat-option>
-                                        <mat-option value="4">Cancelled</mat-option>
+                                        <mat-option value="Planned">Planned</mat-option>
+                                        <mat-option value="InProgress">In Progress</mat-option>
+                                        <mat-option value="Completed">Completed</mat-option>
+                                        <mat-option value="Cancelled">Cancelled</mat-option>
                                     </mat-select>
                                 </mat-form-field>
                             </div>
@@ -54,6 +56,21 @@
                             </div>
                         </div>
 
+                        <!-- New Category Field -->
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Category</mat-label>
+                                    <input matInput [(ngModel)]="filter.category" placeholder="Category">
+                                </mat-form-field>
+                            </div>
+
+                            <!-- Search Button -->
+                            <div class="col-md-3">
+                                <button mat-raised-button color="primary" (click)="searchVisits()">Search</button>
+                            </div>
+                        </div>
+
                         <!-- Table -->
                         <div class="table-responsive">
                             <table class="table">
@@ -65,30 +82,25 @@
                                         <th>Scheduled At</th>
                                         <th>Status</th>
                                         <th>Score</th>
-                                         <th>Category</th>
+                                        <th>Category</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody *ngFor="let visit of filteredVisits">
                                     <tr>
-                                        <td>{{visit.id}}</td>
-                                        <td>{{visit.entityToInspe}}</td>
-                                        <td>{{visit.inspectorName }}</td>
-                                        <td>{{visit.scheduledAt | date}}</td>
-                                        <td>{{visit.status}}</td>
+                                     <td>{{visit.id}}</td> 
+                                     <td>{{visit.entityToInspe}}</td> 
+                                     <td>{{visit.inspectorName }}</td>
+                                      <td>{{visit.scheduledAt | date}}</td>
+                                       <td>{{visit.starusstring}}</td>
                                         <td>{{visit.score}}</td>
-                                        <td>{{visit.category}}</td>
+                                         <td>{{visit.category}}</td>
                                         <td>
-                                            <button (click)="editVisit(visit.id)" mat-icon-button color="primary">
-                                                <mat-icon>edit</mat-icon>
+                                           
+                                                 <button mat-icon-button (click)="addVaiolation(entity.id)" >
+                                                <mat-icon>add</mat-icon>
                                             </button>
-                                            <button mat-icon-button color="accent">
-                                                <mat-icon>visibility</mat-icon>
-                                            </button>
-                                            <button (click)="deleteVisit(visit.id)" mat-icon-button color="warn">
-                                                <mat-icon>delete</mat-icon>
-                                            </button>
-                                            <button mat-icon-button>
+                                            <button mat-icon-button (click)="openStatusDialog(visit)">
                                                 <mat-icon>info</mat-icon>
                                             </button>
                                         </td>
