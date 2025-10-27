@@ -4,32 +4,30 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title">Entity To Inspect</h4>
-                        <p class="card-category">Entity To Inspect</p>
+                        <h4 class="card-title">Inspectors</h4>
+                        <p class="card-category">Inspectors</p>
                     </div>
                     <div class="card-body">
-                        <!-- Add Button Above the Table -->
-                        <div class="text-right mb-3">
-                            <button mat-raised-button color="primary" class="btn btn-success" (click)="AddEntityNewEntity()">Add New</button>
-                        </div>
                         <!-- Table -->
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class="text-primary">
                                     <tr>
                                         <th>ID</th>
-                                        <th>Name</th>
-                                        <th>Address</th>
-                                        <th>Category</th>
+                                        <th>Full Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Role</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
-                                <tbody *ngFor="let entity of entitytoinspectList">
+                                <tbody *ngFor="let entity of inspectorList">
                                     <tr>
                                         <td>{{entity.id}}</td>
-                                        <td>{{entity.name}}</td>
-                                        <td>{{entity.address}}</td>
-                                        <td>{{entity.category}}</td>
+                                        <td>{{entity.fullName}}</td>
+                                        <td>{{entity.email}}</td>
+                                        <td>{{entity.phone}}</td>
+                                        <td>{{entity.role}}</td>
                                         <td>
                                             <button (click)="editEntity(entity.id)" mat-icon-button color="primary">
                                                 <mat-icon>edit</mat-icon>
@@ -41,7 +39,7 @@
                                                 <mat-icon>delete</mat-icon>
                                             </button>
                                             <button mat-icon-button>
-                                                <mat-icon>info</mat-icon>
+                                                <mat-icon>add</mat-icon>
                                             </button>
                                         </td>
                                     </tr>

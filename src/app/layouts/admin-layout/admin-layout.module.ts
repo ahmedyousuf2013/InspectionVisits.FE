@@ -23,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EntitytoinspectAddComponent } from '../entitytoinspect-add/entitytoinspect-add.component';
 import { DeleteConfirmationDialogComponent } from '../delete-confirmation-dialog/delete-confirmation-dialog.component';
+import {  InspectorsComponent } from  '../inspectors/inspectors.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -49,7 +50,8 @@ import { DeleteConfirmationDialogComponent } from '../delete-confirmation-dialog
     UpgradeComponent,
     EntitytoinspectComponent,
     EntitytoinspectAddComponent,
-    DeleteConfirmationDialogComponent
+    DeleteConfirmationDialogComponent,
+    InspectorsComponent
 
   ]
 })

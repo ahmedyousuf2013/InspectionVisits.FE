@@ -10,6 +10,7 @@ import { NotificationsComponent } from '../../notifications/notifications.compon
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
 import { EntitytoinspectComponent } from '../entitytoinspect/entitytoinspect.component';
 import { EntitytoinspectAddComponent } from '../entitytoinspect-add/entitytoinspect-add.component';
+import { InspectorsComponent } from '../inspectors/inspectors.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -57,6 +58,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'entity-toinspect',   component: EntitytoinspectComponent },
+    { path: 'inspectors',   component: InspectorsComponent },
     { path: 'entity-add/:id',   component: EntitytoinspectAddComponent},
     { path: 'entity-add',   component: EntitytoinspectAddComponent },
     { path: 'table-list',     component: TableListComponent },

@@ -10,6 +10,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { LoginComponent } from './pages/login/login.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -25,7 +26,6 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     AppComponent,
     AdminLayoutComponent,
     LoginComponent
-
   ],
   providers: [],
   bootstrap: [AppComponent]
