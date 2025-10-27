@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { EntitytoinspectService } from 'app/services/entitytoinspect.service'
+import { EntitytoinspectService } from 'app/services/entitytoinspect.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-entitytoinspect-add',
@@ -15,6 +16,7 @@ export class EntitytoinspectAddComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     public route: ActivatedRoute,
+    private toastr: ToastrService
   ) {
     this.entityId = this.route.snapshot.params['id'];
     if (this.entityId) {
@@ -34,23 +36,43 @@ export class EntitytoinspectAddComponent implements OnInit {
   ngOnInit(): void {
   }
   save() {
-    this.entitytoinspectService.addOrUpdateEntityToInspect(this.entityForm.value).subscribe(response => {
-      if (response.isSuccess) {
-        this.router.navigate(['/entity-toinspect']);
-        console.log('Entity to inspect saved successfully');
-      } else {
-        console.log('Error saving entity to inspect');
+    if (this.entityForm.invalid) {
+      this.toastr.error('Please fill in all required fields', 'Validation Error');
+      return;
+    }
+    
+    this.entitytoinspectService.addOrUpdateEntityToInspect(this.entityForm.value).subscribe(
+      response => {
+        if (response.isSuccess) {
+          this.toastr.success('Entity saved successfully', 'Success');
+          this.router.navigate(['/entity-toinspect']);
+        } else {
+          this.toastr.error('Failed to save entity', 'Error');
+        }
+      },
+      error => {
+        this.toastr.error('An error occurred while saving', 'Error');
+        console.error('Save error:', error);
       }
-    });
+    );
   }
 
   getEntityById(id: Number) {
-    this.entitytoinspectService.getEntityToInspectById(id).subscribe(response => {
-      if (response.isSuccess && response.result) {
-        this.entityForm.patchValue(response.result);
-      } else {
-        console.log('Error fetching entity to inspect details');
+    this.entitytoinspectService.getEntityToInspectById(id).subscribe(
+      response => {
+        if (response.isSuccess && response.result) {
+          this.entityForm.patchValue(response.result);
+          this.toastr.info('Entity loaded successfully', 'Info');
+        } else {
+          this.toastr.error('Failed to load entity details', 'Error');
+          this.router.navigate(['/entity-toinspect']);
+        }
+      },
+      error => {
+        this.toastr.error('Error loading entity details', 'Error');
+        console.error('Load error:', error);
+        this.router.navigate(['/entity-toinspect']);
       }
-    });
+    );
   }
 }
