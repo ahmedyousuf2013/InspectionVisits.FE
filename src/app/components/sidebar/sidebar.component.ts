@@ -14,11 +14,11 @@ export const ROUTES: RouteInfo[] = [
   { path: '/entity-toinspect', title: 'Entity To Inspect', icon: 'content_paste', class: '' },
   { path: '/inspectors', title: 'Inspectors', icon: 'content_paste', class: '' },
   //{ path: '/typography', title: 'Typography', icon: 'library_books', class: '' },
-  { path: '/insepection-visit', title: 'Insepection Visit', icon: 'library_books', class: '' },
+  { path: '/insepection-visits', title: 'Insepection Visit', icon: 'library_books', class: '' },
   { path: '/icons', title: 'Icons', icon: 'bubble_chart', class: '' },
   { path: '/maps', title: 'Maps', icon: 'location_on', class: '' },
   { path: '/notifications', title: 'Notifications', icon: 'notifications', class: '' },
-  { path: '/upgrade', title: 'Upgrade to PRO', icon: 'unarchive', class: 'active-pro' },
+  //{ path: '/upgrade', title: 'Upgrade to PRO', icon: 'unarchive', class: 'active-pro' },
 ];
 
 @Component({

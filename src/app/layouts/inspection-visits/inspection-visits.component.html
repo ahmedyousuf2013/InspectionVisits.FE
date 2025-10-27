@@ -1,0 +1,104 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Inspection Visits</h4>
+                        <p class="card-category">List and filter visits</p>
+                    </div>
+                    <div class="card-body">
+                        <!-- Filters Section -->
+                        <div class="row mb-3">
+                            <!-- Date Range Filter -->
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Start Date</mat-label>
+                                    <input matInput [matDatepicker]="startDatePicker" [(ngModel)]="filter.startDate" placeholder="Start Date">
+                                    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #startDatePicker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>End Date</mat-label>
+                                    <input matInput [matDatepicker]="endDatePicker" [(ngModel)]="filter.endDate" placeholder="End Date">
+                                    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #endDatePicker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+
+                            <!-- Status Filter -->
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Status</mat-label>
+                                    <mat-select [(ngModel)]="filter.status">
+                                        <mat-option value="1">Planned</mat-option>
+                                        <mat-option value="2">In Progress</mat-option>
+                                        <mat-option value="3">Completed</mat-option>
+                                        <mat-option value="4">Cancelled</mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <!-- Inspector Filter -->
+                            <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Inspector</mat-label>
+                                    <mat-select [(ngModel)]="filter.inspectorId">
+                                        <mat-option *ngFor="let inspector of inspectorList" [value]="inspector.id">
+                                            {{inspector.fullName}}
+                                        </mat-option>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <!-- Table -->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Entity To Inspect</th>
+                                        <th>Inspector</th>
+                                        <th>Scheduled At</th>
+                                        <th>Status</th>
+                                        <th>Score</th>
+                                         <th>Category</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody *ngFor="let visit of filteredVisits">
+                                    <tr>
+                                        <td>{{visit.id}}</td>
+                                        <td>{{visit.entityToInspe}}</td>
+                                        <td>{{visit.inspectorName }}</td>
+                                        <td>{{visit.scheduledAt | date}}</td>
+                                        <td>{{visit.status}}</td>
+                                        <td>{{visit.score}}</td>
+                                        <td>{{visit.category}}</td>
+                                        <td>
+                                            <button (click)="editVisit(visit.id)" mat-icon-button color="primary">
+                                                <mat-icon>edit</mat-icon>
+                                            </button>
+                                            <button mat-icon-button color="accent">
+                                                <mat-icon>visibility</mat-icon>
+                                            </button>
+                                            <button (click)="deleteVisit(visit.id)" mat-icon-button color="warn">
+                                                <mat-icon>delete</mat-icon>
+                                            </button>
+                                            <button mat-icon-button>
+                                                <mat-icon>info</mat-icon>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -29,6 +29,6 @@ export class InspectorsComponent implements OnInit {
 
   addinspectVisit(inspectorid: number) {
 
-  this.router.navigate(['/insepection-visit', inspectorid]);
+  this.router.navigate(['/insepection-visit/', inspectorid]);
   }
 }

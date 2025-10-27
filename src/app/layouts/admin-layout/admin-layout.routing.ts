@@ -12,6 +12,7 @@ import { EntitytoinspectComponent } from '../entitytoinspect/entitytoinspect.com
 import { EntitytoinspectAddComponent } from '../entitytoinspect-add/entitytoinspect-add.component';
 import { InspectorsComponent } from '../inspectors/inspectors.component';
 import { InspectionVisitComponent } from '../inspection-visit/inspection-visit.component';
+import { InspectionVisitsComponent } from '../inspection-visits/inspection-visits.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -63,6 +64,7 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'entity-add/:id',   component: EntitytoinspectAddComponent},
     { path: 'entity-add',   component: EntitytoinspectAddComponent },
     { path: 'insepection-visit/:id',   component: InspectionVisitComponent},
+    { path: 'insepection-visits',   component: InspectionVisitsComponent},
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },
@@ -70,3 +72,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'upgrade',        component: UpgradeComponent },
 ];
+
+//insepection-visits
