@@ -17,7 +17,10 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
-
+import { EntitytoinspectComponent } from '../entitytoinspect/entitytoinspect.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { MatIconModule } from '@angular/material/icon';
+import { EntitytoinspectAddComponent } from '../entitytoinspect-add/entitytoinspect-add.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -30,6 +33,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
+      MatIconModule,
+    
   ],
   declarations: [
     DashboardComponent,
@@ -40,6 +45,9 @@ import {MatSelectModule} from '@angular/material/select';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
+    EntitytoinspectComponent,
+    EntitytoinspectAddComponent
+
   ]
 })
 

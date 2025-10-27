@@ -8,6 +8,8 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { EntitytoinspectComponent } from '../entitytoinspect/entitytoinspect.component';
+import { EntitytoinspectAddComponent } from '../entitytoinspect-add/entitytoinspect-add.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -54,6 +56,9 @@ export const AdminLayoutRoutes: Routes = [
     // }
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
+    { path: 'entity-toinspect',   component: EntitytoinspectComponent },
+    { path: 'entity-add/:id',   component: EntitytoinspectAddComponent},
+    { path: 'entity-add',   component: EntitytoinspectAddComponent },
     { path: 'table-list',     component: TableListComponent },
     { path: 'typography',     component: TypographyComponent },
     { path: 'icons',          component: IconsComponent },

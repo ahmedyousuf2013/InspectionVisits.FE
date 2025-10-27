@@ -1,0 +1,42 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Entity To Inspect</h4>
+                        <p class="card-category"> Entity To Inspect</p>
+                    </div>
+                    <div class="card-body">
+                        <!-- Add Button Above the Table -->
+                        <div class="text-right mb-3">
+                            <button mat-raised-button color class="btn btn-success" (click)="AddEntityNewEntity()">Add New</button>
+                        </div>
+                        <!-- Table -->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="text-primary">
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>Category</th>
+                                    <th>Actions</th>
+                                </thead>
+                                <tbody *ngFor="let entity of entitytoinspectList">
+                                    <tr>
+                                        <td>{{entity.id}}</td>
+                                        <td>{{entity.name}}</td>
+                                        <td>{{entity.address}}</td>
+                                        <td>{{entity.category}}</td>
+                                        <td>
+                                            <button (click)="editEntity(entity.id)" mat-icon-button color="primary">
+                                                <mat-icon>edit</mat-icon>
+                                            </button>
+                                            <button mat-icon-button color="accent">
+                                                <mat-icon>visibility</mat-icon>
+                                            </button>
+                                            <button mat-icon-button color="warn">
+                                                <mat-icon>delete</mat-icon>
+                                            </button>
+                                            <button mat-icon-button>
+                                                <mat-icon>info</mat-icon>

@@ -1,0 +1,42 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Entity To Inspect</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="entityForm" (submit)="save()">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input formControlName="name"  matInput placeholder="Name" type="text">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <input formControlName="category"  matInput placeholder="Category" type="text">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <input formControlName="address"  matInput placeholder="Adress" type="text">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button  class="btn btn-warning pull-right" [routerLink]="['/entity-toinspect']">Cancel </button>
+                            <button mat-raised-button type="submit" class="btn btn-success pull-right">Save </button>
+
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -8,6 +8,7 @@ import { ComponentsModule } from './components/components.module';
 import { AppComponent } from './app.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { LoginComponent } from './pages/login/login.component';
+import { MatFormFieldModule } from "@angular/material/form-field";
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { LoginComponent } from './pages/login/login.component';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-  ],
+    MatFormFieldModule
+],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
