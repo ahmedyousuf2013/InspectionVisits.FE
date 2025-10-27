@@ -28,6 +28,8 @@ import { InspectionVisitComponent } from '../inspection-visit/inspection-visit.c
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core'; // For native date handling
 import {  InspectionVisitsComponent } from '../inspection-visits/inspection-visits.component';
+import {     StatusDialogComponent } from '../status-dialog/status-dialog.component';
+import {    AddViolationDialogComponent  } from '../add-violation-dialog/add-violation-dialog.component';
 import { MatRadioModule } from '@angular/material/radio';
 
 @NgModule({
@@ -63,7 +65,9 @@ import { MatRadioModule } from '@angular/material/radio';
     DeleteConfirmationDialogComponent,
     InspectorsComponent,
     InspectionVisitComponent,
-   InspectionVisitsComponent
+   InspectionVisitsComponent,
+   AddViolationDialogComponent ,
+   StatusDialogComponent
 
   ]
 })

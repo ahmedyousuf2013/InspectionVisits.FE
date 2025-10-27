@@ -6,6 +6,7 @@ import { InspectionVisitService } from 'app/services/inspection-visit.service';
 import { InspectorService } from 'app/services/inspector.service';
 import { MatDialog } from '@angular/material/dialog';
 import { StatusDialogComponent } from '../status-dialog/status-dialog.component';
+import { AddViolationDialogComponent } from '../add-violation-dialog/add-violation-dialog.component';
 
 @Component({
   selector: 'app-inspection-visits',
@@ -75,7 +76,17 @@ export class InspectionVisitsComponent implements OnInit {
     });
   }
 
-  addVaiolation(inspectionVisitId: number) {
-    // Navigate to the violation addition page with the inspection visit ID
-  }
+  openAddViolationDialog(visit: any) {
+  const dialogRef = this.dialog.open(AddViolationDialogComponent, {
+    width: '500px',
+    data: { visitId: visit.id } // لو محتاج تبعت ID الزيارة
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      // بعد الإضافة ممكن تعمل refresh أو تعرض رسالة نجاح
+      console.log('Violation added:', result);
+    }
+  });
+}
 }

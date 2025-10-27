@@ -15,6 +15,7 @@ import { MatOptionModule } from "@angular/material/core";
 import { MatRadioModule } from "@angular/material/radio";
 
 
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -33,7 +34,8 @@ import { MatRadioModule } from "@angular/material/radio";
     AppComponent,
     AdminLayoutComponent,
     LoginComponent,
-    StatusDialogComponent,
+    
+
 
 
   ],

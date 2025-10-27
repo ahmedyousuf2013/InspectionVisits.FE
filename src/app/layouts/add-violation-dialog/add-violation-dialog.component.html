@@ -1,0 +1,33 @@
+<h2 mat-dialog-title>Add Violation</h2>
+<mat-dialog-content>
+  <form #violationForm="ngForm">
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Code</mat-label>
+      <input matInput name="code" [(ngModel)]="violation.code" required>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Description</mat-label>
+      <textarea matInput name="description" [(ngModel)]="violation.description"></textarea>
+    </mat-form-field>
+
+    <label>Severity:</label>
+    <mat-radio-group [(ngModel)]="violation.severity" name="severity">
+      <mat-radio-button value="Low">Low</mat-radio-button>
+      <mat-radio-button value="Med">Medium</mat-radio-button>
+      <mat-radio-button value="High">High</mat-radio-button>
+    </mat-radio-group>
+
+    <mat-form-field appearance="fill" class="w-100">
+      <mat-label>Score</mat-label>
+      <input matInput type="number" name="score" [(ngModel)]="violation.score" required>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-raised-button color="primary" (click)="save()" [disabled]="!violation.code || !violation.score">
+    Add Violation
+  </button>
+</mat-dialog-actions>

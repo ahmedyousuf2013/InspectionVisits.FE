@@ -8,7 +8,8 @@ import { InspectionVisitService } from 'app/services/inspection-visit.service';
   selector: 'app-status-dialog',
 
   templateUrl: './status-dialog.component.html',
-  styleUrls: ['./status-dialog.component.scss']
+  styleUrls: ['./status-dialog.component.scss'],
+
 })
 export class StatusDialogComponent implements OnInit {
   statusForm: FormGroup;
