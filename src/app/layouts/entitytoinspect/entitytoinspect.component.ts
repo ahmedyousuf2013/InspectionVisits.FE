@@ -47,7 +47,7 @@ export class EntitytoinspectComponent implements OnInit {
     const dialogRef = this.dialog.open(DeleteConfirmationDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      debugger
+      
       if (result) {
         this.entityToinspectservice.deleteEntity(entityId).subscribe(response => {
           if (response.isSuccess) {

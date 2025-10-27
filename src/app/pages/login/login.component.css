@@ -1,15 +1,36 @@
-.login-container {
+.login-wrapper {
   display: flex;
-  align-items: center;
   justify-content: center;
-  height: 80vh;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #f9fbfd, #f44336);
 }
+
 .login-card {
-  width: 320px;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  width: 380px;
+  padding: 25px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  border-radius: 12px;
   background: #fff;
+  text-align: center;
 }
-.form-group { margin-bottom: 12px; }
-.text-danger { color: #d9534f; }
+
+mat-card-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.btn-container {
+  margin-top: 15px;
+}
+
+.text-danger {
+  color: #f44336;
+  margin-top: 10px;
+}

@@ -37,7 +37,7 @@ export class InspectionVisitsComponent implements OnInit {
 
 
   ngOnInit(): void {
-    debugger
+    
     this.LoadInspectorsList();
     this.searchVisits();
   }

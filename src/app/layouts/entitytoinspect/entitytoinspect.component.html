@@ -10,7 +10,8 @@
                     <div class="card-body">
                         <!-- Add Button Above the Table -->
                         <div class="text-right mb-3">
-                            <button mat-raised-button color="primary" class="btn btn-success" (click)="AddEntityNewEntity()">Add New</button>
+                            <button mat-raised-button color="primary" class="btn btn-success"
+                                (click)="AddEntityNewEntity()">Add New</button>
                         </div>
                         <!-- Table -->
                         <div class="table-responsive">
@@ -34,15 +35,11 @@
                                             <button (click)="editEntity(entity.id)" mat-icon-button color="primary">
                                                 <mat-icon>edit</mat-icon>
                                             </button>
-                                            <button mat-icon-button color="accent">
-                                                <mat-icon>visibility</mat-icon>
-                                            </button>
+
                                             <button (click)="deleteEntity(entity.id)" mat-icon-button color="warn">
                                                 <mat-icon>delete</mat-icon>
                                             </button>
-                                            <button mat-icon-button>
-                                                <mat-icon>info</mat-icon>
-                                            </button>
+
                                         </td>
                                     </tr>
                                 </tbody>

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { loginModel } from 'app/models/login-model';
 
+
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     constructor(
         private auth: AuthService,
         private fb: FormBuilder,
-        private router: Router
+        private router: Router,
+     
     ) {
         this.loginForm = this.fb.group({
             username: ['', Validators.required],
@@ -30,7 +32,7 @@ export class LoginComponent implements OnInit {
     get f() { return this.loginForm.controls; }
 
     onSubmit(): void {
-        debugger
+        
         this.submitted = true;
         this.error = '';
         if (this.loginForm.invalid) {
