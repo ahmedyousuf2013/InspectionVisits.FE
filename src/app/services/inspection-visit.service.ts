@@ -28,4 +28,9 @@ export class InspectionVisitService {
       const url = `${this.apiUrl}InspectVisit/update-inspection-viststatus`;
       return this.http.post<ApiResponse<InspectorVisit[]>>(url, model);
     }
+
+     AddValiolation(model: any): Observable<ApiResponse<boolean>> {
+      const url = `${this.apiUrl}InspectVisit/add-vaiolations`;
+      return this.http.post<ApiResponse<boolean>>(url, model);
+    }
 }
