@@ -19,8 +19,13 @@ export class EntitytoinspectService {
     return this.http.post<ApiResponse<boolean>>(url, model);
   }
 
-   getEntityToInspectById(id: Number): Observable<ApiResponse<entitytoinspect>> {
+  getEntityToInspectById(id: Number): Observable<ApiResponse<entitytoinspect>> {
     const url = `${this.apiUrl}EntityToInspect/get-entitytoinsepect-byId?EntityToInsepectId=${id}`;
     return this.http.get<ApiResponse<entitytoinspect>>(url);
+  }
+  deleteEntity(entityId: number): Observable<ApiResponse<boolean>> {
+
+    const url = `${this.apiUrl}EntityToInspect/delete-entityto-inspect?entityToinspectId=${entityId}`;
+    return this.http.delete<ApiResponse<boolean>>(url);
   }
 }

@@ -11,16 +11,18 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatRippleModule} from '@angular/material/core';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatTooltipModule} from '@angular/material/tooltip';
-import {MatSelectModule} from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatRippleModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
 import { EntitytoinspectComponent } from '../entitytoinspect/entitytoinspect.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
 import { EntitytoinspectAddComponent } from '../entitytoinspect-add/entitytoinspect-add.component';
+import { DeleteConfirmationDialogComponent } from '../delete-confirmation-dialog/delete-confirmation-dialog.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -33,8 +35,8 @@ import { EntitytoinspectAddComponent } from '../entitytoinspect-add/entitytoinsp
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-      MatIconModule,
-    
+    MatIconModule,
+    MatDialogModule,
   ],
   declarations: [
     DashboardComponent,
@@ -46,9 +48,10 @@ import { EntitytoinspectAddComponent } from '../entitytoinspect-add/entitytoinsp
     NotificationsComponent,
     UpgradeComponent,
     EntitytoinspectComponent,
-    EntitytoinspectAddComponent
+    EntitytoinspectAddComponent,
+    DeleteConfirmationDialogComponent
 
   ]
 })
 
-export class AdminLayoutModule {}
+export class AdminLayoutModule { }
