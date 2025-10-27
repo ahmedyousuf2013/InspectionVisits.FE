@@ -17,7 +17,7 @@ import { MatRadioModule } from "@angular/material/radio";
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { ToastrModule } from 'ngx-toastr';
+//import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -38,13 +38,13 @@ import { ToastrModule } from 'ngx-toastr';
      MatCardModule,
      MatFormFieldModule,
      ReactiveFormsModule,
-    BrowserAnimationsModule,  // 👈 لازم يكون قبل ToastrModule
-    ToastrModule.forRoot({
-      timeOut: 3000,            // مدة العرض 3 ثواني
-      positionClass: 'toast-bottom-right', // مكان التوستر
-      preventDuplicates: true,  // عدم تكرار الرسالة نفسها
-      progressBar: true,        // يظهر شريط تقدم
-    }),
+    // BrowserAnimationsModule,  // 👈 لازم يكون قبل ToastrModule
+    // ToastrModule.forRoot({
+    //   timeOut: 3000,            // مدة العرض 3 ثواني
+    //   positionClass: 'toast-bottom-right', // مكان التوستر
+    //   preventDuplicates: true,  // عدم تكرار الرسالة نفسها
+    //   progressBar: true,        // يظهر شريط تقدم
+    // }),
     
 ],
   declarations: [

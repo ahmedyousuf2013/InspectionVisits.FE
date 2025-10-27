@@ -9,15 +9,13 @@ import { InspectorService } from 'app/services/inspector.service'
 })
 export class InspectorsComponent implements OnInit {
   inspectorList: inspector[] = [];
-  constructor(private InspectorService: InspectorService, private router: Router,
-    
-  ) { }
+  constructor(private inspectorService: InspectorService, private router: Router) { }
 
   ngOnInit(): void {
     this.LoadInspectorsList();
   }
   LoadInspectorsList() {
-    this.InspectorService.GetEntiyToIInspectAll().subscribe(respose => {
+  this.inspectorService.GetEntiyToIInspectAll().subscribe(respose => {
       if (respose.isSuccess) {
         this.inspectorList = respose.result;
         console.log(respose.result);
