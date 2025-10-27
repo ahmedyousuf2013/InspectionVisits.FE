@@ -1,0 +1,82 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Inspection Visit</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="inspectionVisitForm" (submit)="save()"  >
+
+                            <div class="row">
+                                <!-- EntityToInspectId Dropdown -->
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Entity To Inspect</mat-label>
+                                        <mat-select formControlName="EntityToInspectId">
+                                            <mat-option *ngFor="let entity of    entitytoinspectList" [value]="entity.id">
+                                                {{entity.name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <!-- Score Input -->
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Score (0–100)</mat-label>
+                                        <input matInput formControlName="Score" type="number" min="0" max="100"
+                                            placeholder="Score">
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <!-- ScheduledAt Date Picker -->
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Scheduled Date</mat-label>
+                                        <input matInput [matDatepicker]="picker" formControlName="ScheduledAt"
+                                            placeholder="Select date">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                                <!-- Status Dropdown -->
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width">
+                                        <mat-label>Status</mat-label>
+                                        <mat-select formControlName="Status">
+                                            <mat-option value="1">Planned</mat-option>
+                                            <mat-option value="2">In Progress</mat-option>
+                                            <mat-option value="3">Completed</mat-option>
+                                            <mat-option value="4">Cancelled</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row">
+
+                                <!-- Notes Text Area -->
+                                <div class="col-md-12">
+                                    <mat-form-field class="example-full-width">
+                                        <textarea matInput formControlName="Notes" placeholder="Notes"></textarea>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <button mat-raised-button class="btn btn-warning pull-right"
+                                    [routerLink]="['/entity-toinspect']">Cancel</button>
+                                <button mat-raised-button type="submit" class="btn btn-success pull-right">Save</button>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

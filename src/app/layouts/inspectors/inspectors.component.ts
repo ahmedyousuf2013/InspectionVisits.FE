@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { inspector } from 'app/models/inspector';
 import { InspectorService } from 'app/services/inspector.service'
 @Component({
@@ -8,7 +9,9 @@ import { InspectorService } from 'app/services/inspector.service'
 })
 export class InspectorsComponent implements OnInit {
   inspectorList: inspector[] = [];
-  constructor(private InspectorService: InspectorService) { }
+  constructor(private InspectorService: InspectorService, private router: Router,
+    
+  ) { }
 
   ngOnInit(): void {
     this.LoadInspectorsList();
@@ -22,5 +25,10 @@ export class InspectorsComponent implements OnInit {
         console.log('Error while fetching Entity to inspect list');
       }
     });
+  }
+
+  addinspectVisit(inspectorid: number) {
+
+  this.router.navigate(['/insepection-visit', inspectorid]);
   }
 }

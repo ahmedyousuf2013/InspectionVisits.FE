@@ -24,6 +24,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { EntitytoinspectAddComponent } from '../entitytoinspect-add/entitytoinspect-add.component';
 import { DeleteConfirmationDialogComponent } from '../delete-confirmation-dialog/delete-confirmation-dialog.component';
 import {  InspectorsComponent } from  '../inspectors/inspectors.component';
+import { InspectionVisitComponent } from '../inspection-visit/inspection-visit.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core'; // For native date handling
+
+
+
+
 @NgModule({
   imports: [
     CommonModule,
@@ -38,6 +45,8 @@ import {  InspectorsComponent } from  '../inspectors/inspectors.component';
     MatTooltipModule,
     MatIconModule,
     MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   declarations: [
     DashboardComponent,
@@ -51,7 +60,8 @@ import {  InspectorsComponent } from  '../inspectors/inspectors.component';
     EntitytoinspectComponent,
     EntitytoinspectAddComponent,
     DeleteConfirmationDialogComponent,
-    InspectorsComponent
+    InspectorsComponent,
+    InspectionVisitComponent
 
   ]
 })
