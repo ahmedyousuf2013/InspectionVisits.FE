@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardData } from 'app/models/dashboard-data';
+import { InspectionVisitService } from 'app/services/inspection-visit.service';
 import * as Chartist from 'chartist';
 
 @Component({
@@ -7,8 +9,15 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+ dashboardData: DashboardData;
 
-  constructor() { }
+  plannedCount = 0;
+  inProgressCount = 0;
+  completedCount = 0;
+  cancelledCount = 0;
+
+  averageScore = 0;
+  constructor( private InspectionVisitService:InspectionVisitService ) { }
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -66,6 +75,17 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
+
+      this.InspectionVisitService.getDashboard().subscribe({
+      next: (data) => {
+      
+        this.dashboardData = data.result;
+        this.mapCounts(data.result);
+      },
+      error: (err) => {
+        console.error('Error loading dashboard data:', err);
+      }
+    });
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {
@@ -146,5 +166,23 @@ export class DashboardComponent implements OnInit {
       //start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
   }
-
+private mapCounts(data: DashboardData): void {
+    data.countsByStatus.forEach((item) => {
+      switch (item.status) {
+        case 'Planned':
+          this.plannedCount = item.count;
+          break;
+        case 'InProgress':
+          this.inProgressCount = item.count;
+          break;
+        case 'Completed':
+          this.completedCount = item.count;
+          break;
+        case 'Cancelled':
+          this.cancelledCount = item.count;
+          break;
+      }
+    });
+    this.averageScore = data.averageScore;
+  }
 }
