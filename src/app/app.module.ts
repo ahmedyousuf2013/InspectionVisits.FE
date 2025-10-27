@@ -1,7 +1,8 @@
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
@@ -17,7 +18,7 @@ import { MatRadioModule } from "@angular/material/radio";
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-//import { ToastrModule } from 'ngx-toastr';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   imports: [
@@ -32,20 +33,15 @@ import { MatCardModule } from '@angular/material/card';
     MatDialogModule,
     MatOptionModule,
     MatRadioModule,
-
-     MatInputModule,
-     MatButtonModule,
-     MatCardModule,
-     MatFormFieldModule,
-     ReactiveFormsModule,
-    // BrowserAnimationsModule,  // 👈 لازم يكون قبل ToastrModule
-    // ToastrModule.forRoot({
-    //   timeOut: 3000,            // مدة العرض 3 ثواني
-    //   positionClass: 'toast-bottom-right', // مكان التوستر
-    //   preventDuplicates: true,  // عدم تكرار الرسالة نفسها
-    //   progressBar: true,        // يظهر شريط تقدم
-    // }),
-    
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      progressBar: true
+    })
 ],
   declarations: [
     AppComponent,
@@ -56,7 +52,13 @@ import { MatCardModule } from '@angular/material/card';
 
 
   ],
-  providers: [],
+  providers: [
+    { 
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
